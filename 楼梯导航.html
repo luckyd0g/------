@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charest="UTF-8" >
+<title>做的第一个楼梯导航</title>
+<style type"text/css"></style>
+<style>
+    ul {
+        margin:0px;
+        padding: 0px;
+    }
+    body 
+    {
+        margin: 0px;
+        text-align:center;
+        font-size:42px;
+    }
+#header 
+{
+    background-color:blue;
+    width:100%;
+    height:177px;
+}
+#nav 
+{
+    background-color:Green;
+    width:1100px;
+    height: 157px;
+    margin:auto;}
+    .section 
+    {
+        font-size:13px;
+        height:333px;
+        width:1100px;
+        margin:auto;
+          
+            
+        }
+        #stairs {   width:50px;
+            padding: 0px;
+           
+            line-height: 30px;
+   
+             font-size:18px;
+            text-align:center;   
+            position:fixed;
+            right:147px;
+            top:207px;
+            border:2px solid gray;
+            border-radius:5px;
+           
+            }
+            #stairs ul li{
+              cursor: pointer;
+            }
+            #stairs ul li:hover {
+                background-color: blue;
+                color: white;
+
+            }
+            li 
+            {
+                list-style:none;}
+                #footner {
+                    background: rgb(75,192,237);
+                    font-size: 12px;
+                }
+          
+</style>
+</head>
+<body>
+<div id="header">头部</div>
+<div id="nav">导航</div>
+<div id="main">
+<div class="section" style="background:rgb(200,151,253)">
+ 番剧</div>
+ <div class="section" style="background:rgb(83,175,225)">
+ 鬼畜</div>
+ <div class="section" style="background:rgb(200,151,253)">
+ 科技</div>
+ <div class="section" style="background:rgb(226,226,46)">
+ 电影</div>
+ <div class="section" style="background:rgb(238,133,106)">
+ 兄贵</div>
+ <div class="section" style="background:rgb(209,135,155)">
+ 原创</div>
+ <div class="section" style="background:rgb(68,238,72)">
+ 直播</div>
+<div id="footner">一切版权归lucky所有</div>
+<div id="stairs">
+<ul>
+<li>番剧</li>
+<li>鬼畜</li>
+<li>科技</li>
+<li>电影</li>
+<li>兄贵</li>
+<li>原创</li>
+<li>直播</li></ul></div>
+<script src="/Mydemo/jquery-3.2.1.min.js"></script>
+<script>
+var _top=$("#main").offset().top;
+$(window).scroll(function(){
+    var scrollTop=$(this).scrollTop();
+    if (scrollTop>_top) {
+        $("#stairs").css({
+            position:"fixed",top:"30px"
+        })
+    }
+    else{
+        $("#stairs").css({
+            position:"absolute",top:"334px"
+
+    })
+    }
+})
+$("#stairs ul li").click(function(){
+    var index=$(this).index();
+      $("html,body").animate({scrollTop:index*334+_top*1},500)
+
+  
+})
+
+
+</script>
+ </body>
+</html>
